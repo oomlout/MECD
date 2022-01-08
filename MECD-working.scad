@@ -13,10 +13,11 @@ OPSCbuild(shift=200);
 module draw1(){
     color="red";
     BCD=15.5;
-    depth=20;
+    depth=30;
+    dia = 25;
     difference(){
         union(){
-            oi("cylinder",rad=20/2,depth=depth);
+            oi("cylinder",rad=dia/2,depth=depth);
         }
         oi("cylinder",rad=10/2,depth=depth);
         
@@ -26,19 +27,20 @@ module draw1(){
         oi("holeM3",x=-BCD/2);
         //mallet opening
         //littleSlot
-        malletD = 5;
+        malletD = 10;
+        d = 20;
         xx = 0;
         yy = 0;
         zz = -10;
         translate([xx,yy,zz]){
             hull(){
                 zShift=-4;
-                oi("cylinder",rad=malletD/2,depth=10,rotX=90,z=1+zShift);
-                oi("cylinder",rad=malletD/2,depth=10,rotX=90,z=-1+zShift);
+                oi("cylinder",rad=malletD/2,depth=d,rotX=90,z=-depth+25+1+zShift);
+                oi("cylinder",rad=malletD/2,depth=d,rotX=90,z=-depth+25-1+zShift);
             }
             hull(){
-                oi("cylinder",rad=malletD/2,y=-10,depth=10,rotX=90,z=5);
-                oi("cylinder",rad=malletD/2,y=-10,depth=10,rotX=90,z=-5);
+                oi("cylinder",rad=malletD/2,y=-d,depth=d,rotX=90,z=-depth+25+5);
+                oi("cylinder",rad=malletD/2,y=-d,depth=d,rotX=90,z=-depth+25-5);
             }
         }
         
