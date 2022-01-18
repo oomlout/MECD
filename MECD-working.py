@@ -15,7 +15,7 @@ print("Done Homing")
 
 
 
-#robot.MovePose(200, 0, 300, 0, 90, 0)    #### Home Position
+robot.MovePose(200, 0, 300, 0, 90, 0)    #### Home Position
 #robot.MovePose(200, 0, 100, 0, 90, 0)
 
 #robot.MoveLin(200, 0, 300, 0, 90, 0)    #### Home Position
